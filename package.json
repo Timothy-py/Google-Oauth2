@@ -2,7 +2,7 @@
   "name": "google-oauth2",
   "version": "1.0.0",
   "description": "User authentication with Google Oauth2",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
