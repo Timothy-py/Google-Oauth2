@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const passport = require('passport')
 
 const {
     loginSuccess,
@@ -11,6 +12,16 @@ router.get('/index', (req, res)=>{
 
 router.get('/login/success', loginSuccess)
 router.get('/login/failed', loginFailed)
+
+router.get('/google', passport.authenticate('google', ['profile', 'email']))
+
+router.get(
+    '/google/callback',
+    passport.authenticate('google', {
+        successRedirect: process.env.CLIENT_URL,
+        failureRedirect: '/login/failed'
+    })
+)
 
 
 module.exports = router;
