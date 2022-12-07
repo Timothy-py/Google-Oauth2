@@ -1,16 +1,16 @@
+require('dotenv').config()
 const express = require('express')
 const passport = require('passport')
-const passportStrategy = require('./utils/passport')
+const passportSetup = require('./utils/passport')
 
 const routes = require('./routes/api')
 
-require('dotenv').config()
 
 const app = express()
 
 app.use(passport.initialize())
 app.use(express.json())
-app.use('/api/auth', routes)
+app.use('/api', routes)
 
 
 app.listen('3000', ()=>{

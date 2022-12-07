@@ -16,6 +16,13 @@ exports.loginFailed = (req, res) => {
     })
 }
 
+exports.profile = (req, res) => {
+    res.status(200).json({
+        message: "User profile",
+        user: req.user
+    })
+}
+
 exports.logout = (req, res) => {
     req.logout()
     res.redirect(process.env.CLIENT_URL)
