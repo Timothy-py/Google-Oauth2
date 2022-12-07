@@ -9,3 +9,9 @@ exports.loginSuccess = async (req, res)=> {
         user: req.user
     })
 }
+
+exports.loginFailed = (req, res) => {
+    res.status(401).json({
+        message: 'Failed Login'
+    })
+}

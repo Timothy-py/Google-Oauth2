@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
 const {
-    loginSuccess
+    loginSuccess,
+    loginFailed
 } = require('../controllers/controller')
 
 router.get('/index', (req, res)=>{
@@ -9,6 +10,7 @@ router.get('/index', (req, res)=>{
 })
 
 router.get('/login/success', loginSuccess)
+router.get('/login/failed', loginFailed)
 
 
 module.exports = router;
