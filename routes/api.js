@@ -3,7 +3,8 @@ const passport = require('passport')
 
 const {
     loginSuccess,
-    loginFailed
+    loginFailed,
+    logout
 } = require('../controllers/controller')
 
 router.get('/index', (req, res)=>{
@@ -22,6 +23,8 @@ router.get(
         failureRedirect: '/login/failed'
     })
 )
+
+router.get('/logout', logout)
 
 
 module.exports = router;
