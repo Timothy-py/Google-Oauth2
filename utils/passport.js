@@ -4,7 +4,7 @@ const passport = require('passport')
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: 'http:localhost:3000/api/google/callback',
+    callbackURL: 'http://localhost:3000/api/google/callback',
     scope: ['email', 'profile']
 }, function (accessToken, refreshToken, profile, callback) {
     // your user identification logic goes here
