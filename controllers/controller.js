@@ -17,13 +17,14 @@ exports.loginFailed = (req, res) => {
 }
 
 exports.profile = (req, res) => {
+    console.log(req.user)
     res.status(200).json({
         message: "User profile",
-        user: req.user
+        user: req.user.displayName
     })
 }
 
 exports.logout = (req, res) => {
     req.logout()
-    res.redirect(process.env.CLIENT_URL)
+    res.redirect('/api/index')
 }

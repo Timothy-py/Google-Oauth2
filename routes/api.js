@@ -21,8 +21,8 @@ router.get('/google', passport.authenticate('google', ['profile', 'email']))
 router.get(
     '/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/profile',
-        failureRedirect: '/login/failed'
+        successRedirect: '/api/profile',
+        failureRedirect: '/api/login/failed'
     })
 )
 
