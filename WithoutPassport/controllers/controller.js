@@ -19,10 +19,8 @@ exports.getUserProfile = async (req, res)=> {
             }
         })
 
-        
-        return res.status(200).json({
-            message: "Google User profile retrieved"
-        })
+        console.log(googleUser.data)
+        return res.redirect('/api/authenticate')
     } catch (error) {
         console.log(error)
         return res.status(500).json({
@@ -30,4 +28,10 @@ exports.getUserProfile = async (req, res)=> {
             error: error.message
         })
     }
+}
+
+
+exports.authenticateUser = async (req, res)=> {
+    // implement functionality to sigin or signup user and send JWT
+    res.status(200).send('User authenticated')
 }

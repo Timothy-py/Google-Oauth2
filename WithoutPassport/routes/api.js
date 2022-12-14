@@ -3,7 +3,8 @@ const router = require('express').Router();
 const googleClient = require('../utils/google-client');
 
 const {
-    getUserProfile
+    getUserProfile,
+    authenticateUser
 } = require('../controllers/controller')
 
 router.get('/index', (req, res)=>{
@@ -25,6 +26,8 @@ router.get('/google', (req, res)=>{
 })
 
 router.get('/google/callback', getUserProfile)
+
+router.get('/authenticate', authenticateUser)
 
 module.exports = router;
 
