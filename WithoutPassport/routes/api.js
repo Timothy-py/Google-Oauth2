@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const url_parser = require('url')
-const axios = require('axios')
 
-const googleClient = require('../utils/google-client')
+const googleClient = require('../utils/google-client');
+
+const {
+    getUserProfile
+} = require('../controllers/controller')
 
 router.get('/index', (req, res)=>{
     return res.status(200).send('Authentication Service with Google Oauth2 without Passportjs')
@@ -14,21 +16,15 @@ router.get('/google', (req, res)=>{
         'https://www.googleapis.com/auth/userinfo.email'
     ]
 
-    const generateUrl = googleClient.generateAuthUrl({
+    const oauthscreenurl = googleClient.generateAuthUrl({
         access_type: 'offline',
         prompt: 'consent',
         scope: scopes
     })
-    res.redirect(generateUrl)
+    res.redirect(oauthscreenurl)
 })
 
-router.get('/google/callback', async (req, res)=>{
-    const url = req.url
-    const parse = url_parser.parse(url, true)
-    const code = parse.query.code
-    
-    // const {tokens} = 
-})
+router.get('/google/callback', getUserProfile)
 
 module.exports = router;
 
